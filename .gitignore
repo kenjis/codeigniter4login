@@ -1,3 +1,6 @@
 /writable
 *.json
 vendor/
+.idea/
+build/
+.phpunit.result.cache
