@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c49469ea6df972381be63807c7e127d",
+    "content-hash": "942de87345129b6c1bec4dfbcc9e551d",
     "packages": [
         {
             "name": "codeigniter4/framework",
@@ -1744,6 +1744,65 @@
             "time": "2020-02-27T09:26:54+00:00"
         },
         {
+            "name": "tatter/patches",
+            "version": "v2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tattersoftware/codeigniter4-patches.git",
+                "reference": "2ab870e5aa4517e480ac479c401211e623aa275c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tattersoftware/codeigniter4-patches/zipball/2ab870e5aa4517e480ac479c401211e623aa275c",
+                "reference": "2ab870e5aa4517e480ac479c401211e623aa275c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "bin": [
+                "src/patch"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew Gatner",
+                    "email": "mgatner@tattersoftware.com",
+                    "homepage": "https://tattersoftware.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Automated project updates for CodeIgniter 4",
+            "homepage": "https://github.com/tattersoftware/codeigniter4-patches",
+            "keywords": [
+                "automatic",
+                "autoupdate",
+                "codeigniter",
+                "codeigniter4",
+                "patches",
+                "update"
+            ],
+            "support": {
+                "issues": "https://github.com/tattersoftware/codeigniter4-patches/issues",
+                "source": "https://github.com/tattersoftware/codeigniter4-patches/tree/v2.0.5"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/tatter",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/tattersoftware",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-06-30T23:14:51+00:00"
+        },
+        {
             "name": "theseer/tokenizer",
             "version": "1.1.3",
             "source": {
@@ -1840,5 +1899,6 @@
     "platform": {
         "php": ">=7.2"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
