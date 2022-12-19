@@ -1,21 +1,20 @@
 <?php
 
 declare(strict_types=1);
-use Tests\Support\DatabaseTestCase;
 
+use CodeIgniter\Test\CIUnitTestCase;
+use CodeIgniter\Test\DatabaseTestTrait;
+use Tests\Support\Database\Seeds\ExampleSeeder;
 use Tests\Support\Models\ExampleModel;
 
 /**
  * @internal
  */
-final class ExampleDatabaseTest extends DatabaseTestCase
+final class ExampleDatabaseTest extends CIUnitTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
+    use DatabaseTestTrait;
 
-        // Extra code to run before each test
-    }
+    protected $seed = ExampleSeeder::class;
 
     public function testModelFindAll(): void
     {
@@ -32,7 +31,9 @@ final class ExampleDatabaseTest extends DatabaseTestCase
     {
         $model = new ExampleModel();
         $this->setPrivateProperty($model, 'useSoftDeletes', true);
+        $this->setPrivateProperty($model, 'tempUseSoftDeletes', true);
 
+        /** @var stdClass $object */
         $object = $model->first();
         $model->delete($object->id);
 
