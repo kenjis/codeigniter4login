@@ -1,23 +1,21 @@
-<?php namespace Tests\Support\Models;
+<?php
+
+declare(strict_types=1);
+
+namespace Tests\Support\Models;
 
 use CodeIgniter\Model;
 
 class JobModel extends Model
 {
-	protected $table = 'job';
-
-	protected $returnType = 'object';
-
-	protected $useSoftDeletes = false;
-
-	protected $dateFormat = 'int';
-
-	protected $allowedFields = [
-		'name',
-		'description',
-	];
-
-	public $name = '';
-
-	public $description = '';
+    protected $table          = 'job';
+    protected $returnType     = 'object';
+    protected $useSoftDeletes = false;
+    protected $dateFormat     = 'int';
+    protected $allowedFields  = [
+        'name',
+        'description',
+    ];
+    public $name        = '';
+    public $description = '';
 }

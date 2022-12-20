@@ -1,14 +1,17 @@
-<?php namespace Tests\Support\Validation;
+<?php
 
-class TestRules {
+declare(strict_types=1);
 
-	public function customError(string $str, string &$error = null)
-	{
-		$error = 'My lovely error';
+namespace Tests\Support\Validation;
 
-		return false;
-	}
+class TestRules
+{
+    public function customError(string $str, ?string &$error = null)
+    {
+        $error = 'My lovely error';
 
-	//--------------------------------------------------------------------
+        return false;
+    }
 
+    // --------------------------------------------------------------------
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
@@ -23,9 +25,9 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'auth' => \App\Filters\Auth::class,
-        'noauth' => \App\Filters\Noauth::class,
-        'userscheck' => \App\Filters\UsersCheck::class,
+        'auth'          => \App\Filters\Auth::class,
+        'noauth'        => \App\Filters\Noauth::class,
+        'userscheck'    => \App\Filters\UsersCheck::class,
     ];
 
     /**
@@ -41,7 +43,7 @@ class Filters extends BaseConfig
             // 'csrf',
             // 'invalidchars',
         ],
-        'after' => [
+        'after'  => [
             'toolbar',
             // 'honeypot',
             // 'secureheaders',

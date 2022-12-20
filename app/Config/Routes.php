@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Config;
 
 // Create a new instance of our RouteCollection class.
@@ -37,9 +39,9 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Users::index', ['filter' => 'noauth']);
 $routes->get('logout', 'Users::logout');
-$routes->match(['get','post'],'register', 'Users::register', ['filter' => 'noauth']);
-$routes->match(['get','post'],'profile', 'Users::profile',['filter' => 'auth']);
-$routes->get('dashboard', 'Dashboard::index',['filter' => 'auth']);
+$routes->match(['get', 'post'], 'register', 'Users::register', ['filter' => 'noauth']);
+$routes->match(['get', 'post'], 'profile', 'Users::profile', ['filter' => 'auth']);
+$routes->get('dashboard', 'Dashboard::index', ['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------

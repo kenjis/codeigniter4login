@@ -1,79 +1,77 @@
-<?php namespace Tests\Support\Models;
+<?php
+
+declare(strict_types=1);
+
+namespace Tests\Support\Models;
 
 use CodeIgniter\Model;
 
 class EventModel extends Model
 {
-	protected $table = 'user';
+    protected $table          = 'user';
+    protected $returnType     = 'array';
+    protected $useSoftDeletes = false;
+    protected $dateFormat     = 'datetime';
+    protected $allowedFields  = [
+        'name',
+        'email',
+        'country',
+        'deleted_at',
+    ];
+    protected $beforeInsert = ['beforeInsertMethod'];
+    protected $afterInsert  = ['afterInsertMethod'];
+    protected $beforeUpdate = ['beforeUpdateMethod'];
+    protected $afterUpdate  = ['afterUpdateMethod'];
+    protected $afterFind    = ['afterFindMethod'];
+    protected $afterDelete  = ['afterDeleteMethod'];
 
-	protected $returnType = 'array';
+    // Holds stuff for testing events
+    protected $tokens = [];
 
-	protected $useSoftDeletes = false;
+    protected function beforeInsertMethod(array $data)
+    {
+        $this->tokens[] = 'beforeInsert';
 
-	protected $dateFormat = 'datetime';
+        return $data;
+    }
 
-	protected $allowedFields = [
-		'name',
-		'email',
-		'country',
-		'deleted_at',
-	];
+    protected function afterInsertMethod(array $data)
+    {
+        $this->tokens[] = 'afterInsert';
 
-	protected $beforeInsert = ['beforeInsertMethod'];
-	protected $afterInsert  = ['afterInsertMethod'];
-	protected $beforeUpdate = ['beforeUpdateMethod'];
-	protected $afterUpdate  = ['afterUpdateMethod'];
-	protected $afterFind    = ['afterFindMethod'];
-	protected $afterDelete  = ['afterDeleteMethod'];
+        return $data;
+    }
 
-	// Holds stuff for testing events
-	protected $tokens = [];
+    protected function beforeUpdateMethod(array $data)
+    {
+        $this->tokens[] = 'beforeUpdate';
 
-	protected function beforeInsertMethod(array $data)
-	{
-		$this->tokens[] = 'beforeInsert';
+        return $data;
+    }
 
-		return $data;
-	}
+    protected function afterUpdateMethod(array $data)
+    {
+        $this->tokens[] = 'afterUpdate';
 
-	protected function afterInsertMethod(array $data)
-	{
-		$this->tokens[] = 'afterInsert';
+        return $data;
+    }
 
-		return $data;
-	}
+    protected function afterFindMethod(array $data)
+    {
+        $this->tokens[] = 'afterFind';
 
-	protected function beforeUpdateMethod(array $data)
-	{
-		$this->tokens[] = 'beforeUpdate';
+        return $data;
+    }
 
-		return $data;
-	}
+    protected function afterDeleteMethod(array $data)
+    {
+        $this->tokens[] = 'afterDelete';
 
-	protected function afterUpdateMethod(array $data)
-	{
-		$this->tokens[] = 'afterUpdate';
+        return $data;
+    }
 
-		return $data;
-	}
-
-	protected function afterFindMethod(array $data)
-	{
-		$this->tokens[] = 'afterFind';
-
-		return $data;
-	}
-
-	protected function afterDeleteMethod(array $data)
-	{
-		$this->tokens[] = 'afterDelete';
-
-		return $data;
-	}
-
-	public function hasToken(string $token)
-	{
-		return in_array($token, $this->tokens);
-	}
-
+    public function hasToken(string $token)
+    {
+        return in_array($token, $this->tokens, true);
+    }
 }

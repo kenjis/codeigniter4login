@@ -1,8 +1,12 @@
-<?php namespace App\Filters;
+<?php
 
+declare(strict_types=1);
+
+namespace App\Filters;
+
+use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
-use CodeIgniter\Filters\FilterInterface;
 
 class UsersCheck implements FilterInterface
 {
@@ -10,22 +14,22 @@ class UsersCheck implements FilterInterface
     {
         // Do something here
         // If segment 1 == users
-        //we have to redirect the request to the second segment
+        // we have to redirect the request to the second segment
         $uri = service('uri');
-        if($uri->getSegment(1) == 'users'){
-          if($uri->getSegment(2) == '')
-            $segment = '/';
-          else
-            $segment = '/'.$uri->getSegment(2);
+        if ($uri->getSegment(1) === 'users') {
+            if ($uri->getSegment(2) === '') {
+                $segment = '/';
+            } else {
+                $segment = '/' . $uri->getSegment(2);
+            }
 
-          return redirect()->to($segment);
-
+            return redirect()->to($segment);
         }
     }
 
-    //--------------------------------------------------------------------
+    // --------------------------------------------------------------------
 
-    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
+    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null): void
     {
         // Do something here
     }

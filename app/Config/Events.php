@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Config;
 
 use CodeIgniter\Events\Events;
@@ -22,7 +24,7 @@ use CodeIgniter\Exceptions\FrameworkException;
  *      Events::on('create', [$myInstance, 'myMethod']);
  */
 
-Events::on('pre_system', static function () {
+Events::on('pre_system', static function (): void {
     if (ENVIRONMENT !== 'testing') {
         if (ini_get('zlib.output_compression')) {
             throw FrameworkException::forEnabledZlibOutputCompression();
