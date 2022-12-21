@@ -23,6 +23,7 @@ use Rector\CodingStyle\Rector\FuncCall\CountArrayToEmptyArrayComparisonRector;
 use Rector\Config\RectorConfig;
 use Rector\Core\ValueObject\PhpVersion;
 use Rector\DeadCode\Rector\ClassMethod\RemoveUnusedPromotedPropertyRector;
+use Rector\DeadCode\Rector\If_\RemoveAlwaysTrueIfConditionRector;
 use Rector\DeadCode\Rector\MethodCall\RemoveEmptyMethodCallRector;
 use Rector\EarlyReturn\Rector\Foreach_\ChangeNestedForeachIfsToEarlyContinueRector;
 use Rector\EarlyReturn\Rector\If_\ChangeIfElseValueAssignToEarlyReturnRector;
@@ -99,6 +100,10 @@ return static function (RectorConfig $rectorConfig): void {
 
         // May be uninitialized on purpose
         AddDefaultValueForUndefinedVariableRector::class,
+
+        RemoveAlwaysTrueIfConditionRector::class              => [
+            __DIR__ . '/app/Config/Database.php',
+        ],
     ]);
 
     // auto import fully qualified class names
