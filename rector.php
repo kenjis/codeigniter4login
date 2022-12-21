@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Rector\CodeQuality\Rector\BooleanAnd\SimplifyEmptyArrayCheckRector;
 use Rector\CodeQuality\Rector\Class_\CompleteDynamicPropertiesRector;
 use Rector\CodeQuality\Rector\Expression\InlineIfToExplicitIfRector;
@@ -35,7 +37,6 @@ use Rector\Privatization\Rector\Property\PrivatizeFinalClassPropertyRector;
 use Rector\PSR4\Rector\FileWithoutNamespace\NormalizeNamespaceByPSR4ComposerAutoloadRector;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
-use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->sets([
@@ -84,7 +85,7 @@ return static function (RectorConfig $rectorConfig): void {
         RemoveUnusedPromotedPropertyRector::class,
 
         // Ignore tests that might make calls without a result
-        RemoveEmptyMethodCallRector::class => [
+        RemoveEmptyMethodCallRector::class                    => [
             __DIR__ . '/tests',
         ],
 
@@ -125,14 +126,6 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->rule(MakeInheritedMethodVisibilitySameAsParentRector::class);
     $rectorConfig->rule(SimplifyEmptyArrayCheckRector::class);
     $rectorConfig->rule(NormalizeNamespaceByPSR4ComposerAutoloadRector::class);
-    $rectorConfig
-        ->ruleWithConfiguration(TypedPropertyFromAssignsRector::class, [
-            /**
-             * The INLINE_PUBLIC value is default to false to avoid BC break, if you use for libraries and want to preserve BC break, you don't need to configure it, as it included in LevelSetList::UP_TO_PHP_74
-             * Set to true for projects that allow BC break
-             */
-            TypedPropertyFromAssignsRector::INLINE_PUBLIC => true,
-        ]);
     $rectorConfig->rule(StringClassNameToClassConstantRector::class);
     $rectorConfig->rule(PrivatizeFinalClassPropertyRector::class);
     $rectorConfig->rule(CompleteDynamicPropertiesRector::class);
