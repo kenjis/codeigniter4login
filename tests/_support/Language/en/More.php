@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Tests\Support\Language\en;
+
 return [
     'strongForce' => 'These are not the droids you are looking for',
     'notaMoon'    => "That's no moon... it's a space station",

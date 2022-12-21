@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Config;
 
+use App\Filters\Auth;
+use App\Filters\Noauth;
+use App\Filters\UsersCheck;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -25,9 +28,9 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'auth'          => \App\Filters\Auth::class,
-        'noauth'        => \App\Filters\Noauth::class,
-        'userscheck'    => \App\Filters\UsersCheck::class,
+        'auth'          => Auth::class,
+        'noauth'        => Noauth::class,
+        'userscheck'    => UsersCheck::class,
     ];
 
     /**

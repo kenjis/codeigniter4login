@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Config;
 
+use App\Validation\UserRules;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Validation\CreditCardRules;
 use CodeIgniter\Validation\FileRules;
@@ -27,7 +28,7 @@ class Validation extends BaseConfig
         FormatRules::class,
         FileRules::class,
         CreditCardRules::class,
-        \App\Validation\UserRules::class,
+        UserRules::class,
     ];
 
     /**

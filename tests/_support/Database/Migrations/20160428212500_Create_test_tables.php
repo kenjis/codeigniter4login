@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Support\Database\Migrations;
 
-class Migration_Create_test_tables extends \CodeIgniter\Database\Migration
+use CodeIgniter\Database\Migration;
+
+class Migration_Create_test_tables extends Migration
 {
     public function up(): void
     {

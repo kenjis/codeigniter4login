@@ -4,14 +4,18 @@ declare(strict_types=1);
 
 namespace Tests\Support\Log\Handlers;
 
+use CodeIgniter\Log\Handlers\FileHandler;
+
 /**
  * Class TestHandler
  *
  * A simple LogHandler that stores the logs in memory.
  * Only used for testing purposes.
  */
-class TestHandler extends \CodeIgniter\Log\Handlers\FileHandler
+class TestHandler extends FileHandler
 {
+    public string $destination;
+
     /**
      * Local storage for logs.
      *
@@ -40,6 +44,9 @@ class TestHandler extends \CodeIgniter\Log\Handlers\FileHandler
      * If the handler returns false, then execution of handlers
      * will stop. Any handlers that have not run, yet, will not
      * be run.
+     *
+     * @param mixed $level
+     * @param mixed $message
      */
     public function handle($level, $message): bool
     {

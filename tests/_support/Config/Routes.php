@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Tests\Support\Config;
+
 /**
  * This is a simple file to include for testing the RouteCollection class.
  */

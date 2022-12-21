@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Database\Migrations;
 
-class AddUsers extends \CodeIgniter\Database\Migration
+use CodeIgniter\Database\Migration;
+
+class AddUsers extends Migration
 {
     public function up(): void
     {

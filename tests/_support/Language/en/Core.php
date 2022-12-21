@@ -1,6 +1,9 @@
 <?php
 
 declare(strict_types=1);
+
+namespace Tests\Support\Language\en;
+
 /**
  * Core language strings.
  *
@@ -16,7 +19,6 @@ declare(strict_types=1);
  *
  * @codeCoverageIgnore
  */
-
 // looking for a system message not likely to be part of unit testing
 return [
     'missingExtension' => '{0} extension could not be found.',

@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Tests\Support\Autoloader;
+
 class UnnamespacedClass
 {
 }

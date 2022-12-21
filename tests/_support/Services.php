@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CodeIgniter;
+namespace Tests\Support;
 
 use CIUnitTestCase;
 use Config\Services as ConfigServices;
@@ -35,6 +35,8 @@ class Services
 
     /**
      * Inject mock object for testing.
+     *
+     * @param mixed $mock
      */
     public static function injectMock(string $name, $mock): void
     {

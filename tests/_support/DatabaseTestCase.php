@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Tests\Support;
 
+use CodeIgniter\Test\CIDatabaseTestCase;
+
 /**
  * @internal
  */
-final class DatabaseTestCase extends \CodeIgniter\Test\CIDatabaseTestCase
+final class DatabaseTestCase extends CIDatabaseTestCase
 {
     /**
      * Should the database be refreshed before each test?
