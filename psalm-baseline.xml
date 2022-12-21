@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="5.4.0@62db5d4f6a7ae0a20f7cc5a4952d730272fc0863">
+  <file src="app/Config/Events.php">
+    <UndefinedFunction occurrences="1">
+      <code>fn ($buffer)</code>
+    </UndefinedFunction>
+  </file>
+  <file src="app/Config/Routes.php">
+    <MissingFile occurrences="1">
+      <code>require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'</code>
+    </MissingFile>
+  </file>
+</files>
